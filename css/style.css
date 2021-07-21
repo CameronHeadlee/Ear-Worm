@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h1{
     color:white;
 
@@ -5,12 +6,21 @@ h1{
     vertical-align: middle;
     margin: auto;
   width: 0%;
-
-  padding: 5px;   
+=======
+body, html {
+  height: 100%;
 }
-p{
-    color:white;
+>>>>>>> b010f142b6e061a36f2e0c2f817aa974b9b6bed0
 
+.bg{
+  background-image: url(https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+<<<<<<< HEAD
     font-family: sans-serif;
     vertical-align: middle;
     margin: auto;
@@ -29,3 +39,29 @@ form{
     padding: 5px;   
 
 }
+=======
+h1{
+  color: aqua;
+  font-family:cursive;
+  vertical-align: middle;
+  margin: auto;
+width: 0%;
+padding: 5px;
+}
+p{
+  color: aqua;
+  font-family: sans-serif;
+  vertical-align: middle;
+  margin: auto;
+width: 90%;
+padding: 5px;
+}
+form{
+  color:aqua;
+  font-family: sans-serif;
+  vertical-align: middle;
+  margin: auto;
+  width: 95%;
+  padding: 5px;
+}
+>>>>>>> b010f142b6e061a36f2e0c2f817aa974b9b6bed0
