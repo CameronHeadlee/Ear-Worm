@@ -1,11 +1,6 @@
 h1{
     color:white;
 
-    background: linear-gradient(to right,  turquoise 50%, #F859EB 50%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
     font-family:cursive;
     vertical-align: middle;
     margin: auto;
@@ -15,11 +10,6 @@ h1{
 }
 p{
     color:white;
-
-  padding: 5px;
-}
-p{
-    color:turquoise;
 
     font-family: sans-serif;
     vertical-align: middle;
@@ -31,11 +21,6 @@ p{
 form{
     color:white;
 
-  padding: 5px;
-}
-form{
-    color:turquoise;
-
     font-family: sans-serif;
     vertical-align: middle;
     margin: auto;
@@ -43,5 +28,4 @@ form{
 
     padding: 5px;   
 
-    padding: 5px;
 }
