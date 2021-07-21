@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>EarWorm</title>
 </head>
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
     <header>
         <h1>Ear~Worm</h1>
         <p>Type the lyrics you have stuck in your head into the search bar below.</p>
@@ -22,6 +22,11 @@
                 <label for="lyrics">Lyrics!</label>
                 <input type="search" placeholder="Search.." name="Search">
                 <button type="button" class="Btn">Search!</button>
+        </section>
+        <section>
+            <h2>Search Results Here!</h2>
+            <input type="text" size="30" onekeyup="showResult(this.value)">
+            <div id="livesearch"></div>
         </section>
     </main>
     <script src="js/searchResults.js"></script>
