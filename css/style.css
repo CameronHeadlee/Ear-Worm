@@ -1,0 +1,24 @@
+h1{
+    color:white;
+    font-family:cursive;
+    vertical-align: middle;
+    margin: auto;
+  width: 0%;
+  padding: 5px;   
+}
+p{
+    color:white;
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin: auto;
+  width: 90%;
+  padding: 5px;   
+}
+form{
+    color:white;
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin: auto;
+    width: 95%;
+    padding: 5px;   
+}
