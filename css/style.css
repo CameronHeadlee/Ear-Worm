@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-h1{
-    color:white;
-
-    font-family:cursive;
-    vertical-align: middle;
-    margin: auto;
-  width: 0%;
-=======
-body, html {
-  height: 100%;
-}
->>>>>>> b010f142b6e061a36f2e0c2f817aa974b9b6bed0
-
+body,html{height:100%}
 .bg{
   background-image: url(https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   height: 100%;
@@ -20,48 +7,56 @@ body, html {
   background-size: cover;
 }
 
-<<<<<<< HEAD
-    font-family: sans-serif;
-    vertical-align: middle;
-    margin: auto;
-  width: 90%;
-
-  padding: 5px;   
-}
-form{
-    color:white;
-
-    font-family: sans-serif;
-    vertical-align: middle;
-    margin: auto;
-    width: 95%;
-
-    padding: 5px;   
-
-}
-=======
 h1{
-  color: aqua;
+  color:white;
   font-family:cursive;
   vertical-align: middle;
   margin: auto;
-width: 0%;
+width: 22.5%;
 padding: 5px;
+font-size:75px;
 }
 p{
-  color: aqua;
+  color:white;
   font-family: sans-serif;
   vertical-align: middle;
   margin: auto;
 width: 90%;
 padding: 5px;
+font-size: 18.25px;
 }
 form{
-  color:aqua;
+  color:white;
   font-family: sans-serif;
   vertical-align: middle;
   margin: auto;
   width: 95%;
   padding: 5px;
+  font-size: 23px;
 }
->>>>>>> b010f142b6e061a36f2e0c2f817aa974b9b6bed0
+input{
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin: auto;
+    width: 20%;
+    padding: 5px;
+    font-size: 12px;
+}
+h2{
+    color:white;
+    font-size: 30px;
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin:auto;
+    width: 25%;
+    padding: 250px;
+}
+.Results{
+    color:white;
+    font-size: 30px;
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin:auto;
+    width: 25%;
+    padding: 250px;
+}
