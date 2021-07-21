@@ -28,6 +28,19 @@ var musicsearch = document.querySelector('#musicsearch');
 
 function MusicSearch(query) {
     var locMMURL = 'https://www.musixmatch.com/search/?fo=json';
+
+    locMMURL = locMMURL + '&q=' + query;
+
+    fetch(locMMURL)
+    .then(function (response) {
+      if(!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    })
+    .then(function (locRes) {
+
+    })
 }
 
 
@@ -48,3 +61,10 @@ function MusicSearchSubmit(event) {
 
 musicsearch.addEventListener('submit', MusicSearchSubmit);
 
+
+// NOTES FOR A STEP. PLEASE DO NOT REMOVE. 
+// THIS WILL BE NEEDED TO TAKE RESULTS TO YOUTUBE API.
+// var linkButtonEl = document.createElement('a');
+// linkButtonEl.textContent = 'Read More';
+// linkButtonEl.setAttribute('href', resultObj.url);
+// linkButtonEl.classList.add('btn', 'btn-dark');
