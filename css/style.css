@@ -1,0 +1,47 @@
+h1{
+    color:white;
+
+    background: linear-gradient(to right,  turquoise 50%, #F859EB 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+    font-family:cursive;
+    vertical-align: middle;
+    margin: auto;
+  width: 0%;
+
+  padding: 5px;   
+}
+p{
+    color:white;
+
+  padding: 5px;
+}
+p{
+    color:turquoise;
+
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin: auto;
+  width: 90%;
+
+  padding: 5px;   
+}
+form{
+    color:white;
+
+  padding: 5px;
+}
+form{
+    color:turquoise;
+
+    font-family: sans-serif;
+    vertical-align: middle;
+    margin: auto;
+    width: 95%;
+
+    padding: 5px;   
+
+    padding: 5px;
+}
