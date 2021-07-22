@@ -19,14 +19,13 @@
     </header>
     <main>
         <section>
-            <form action="searchPage.html">
+            <form id="musicsearch">
                 <label for="lyrics">Lyrics!</label>
-                <input type="search" placeholder="Search.." name="Search">
-                <button type="button" class="Btn">Search!</button>
+                <input id="Search" type="text" placeholder="Search.." name="Search">
+                <button type="submit" class="Btn">Search!</button>
             </form>
         </section>
         <section class="Results">
-            
             <form>
             <h2>Search Results Here!</h2>
             <input type="text" size="30" onekeyup="showResult(this.value)">
