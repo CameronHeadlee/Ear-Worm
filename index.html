@@ -6,25 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <link rel="stylesheet" href="css/firststyle.css">
     <title>EarWorm</title>   
 
 </head> 
 
 
-</head>
+
 <body class="bg">
 
     <header>
-        <h1>Ear~Worm</h1>
-        <p>Type the lyrics you have stuck in your head into the search bar below.</p>
+    <div>
+        <h1 class="center-align blue-text text-darken-2">Ear~Worm</h1>
+    </div>
+        <div>
+            <p class="blue-text text-darken-2 center-align flow-text">Type the lyrics you have stuck in your head into the search bar below.</p>
+        </div>
     </header>
     <main>
         <section> 
-            <form id="musicsearch">
-                <label for="lyrics">Lyrics</label>
-                <input id="Search" type="text" placeholder="Search.." name="Search">
+            <form id="musicsearch" class="center-align">
+                <label for="lyrics" class="blue-text text-darken-2 flow-text">Lyrics</label>
+                <input id="Search" type="text" placeholder="Search.." name="Search" class="blue-text text-darken-2">
                 <button type="submit" class="Btn">Search!</button>
             </form>
         </section>
@@ -32,7 +37,8 @@
 
         
     </main>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/homepage.js"></script>
 </body>
 </html>
