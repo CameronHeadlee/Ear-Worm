@@ -5,33 +5,17 @@ body, html {
   .bg{
     background-image: url(https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
     height: 100%;
-    width: 50%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   
-  h1{
-    color: aqua;
-    font-family:cursive;
-    vertical-align: middle;
-    margin: auto;
-  width: 0%;
-  padding: 5px;
-  }
-  p{
-    color: aqua;
-    font-family: sans-serif;
-    vertical-align: middle;
-    margin: auto;
-  width: 90%;
-  padding: 5px;
-  }
+  
   form{
     color:aqua;
     font-family: sans-serif;
     vertical-align: middle;
     margin: auto;
-    width: 95%;
+    width: 50%;
     padding: 5px;
   }
