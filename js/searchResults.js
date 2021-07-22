@@ -1,11 +1,19 @@
 
 //GLOBAL VARIABLES 
 var player;
+
 var resultContent = document.querySelector("#livesearch")
 var musicsearch = document.querySelector('#musicsearch');
 
 //FUNCTIONS
 var YTP = "https://www.youtube.com/iframe_api"; 
+
+var resultContent = document.querySelector("#livesearch");
+var musicsearch = document.querySelector('#musicsearch');
+
+//FUNCTIONS 
+var YTP = "https://www.youtube.com/iframe_api";
+
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
@@ -24,6 +32,13 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     event.target.playVideo();
   }
+
+
+  
+function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+  
 
 
   function onPlayerReady(event) {
@@ -74,4 +89,23 @@ function MusicSearchSubmit(event) {
 
 }
 
+function printResults(result) {
+    console.log(result);
+
+var resultCard = document.createElement('div');
+resultCard.classList.add('card');
+
+var title = document.createElement('h3');
+title.textContent = result.title;
+
+var linkButton = document.createElement('a');
+linkButton.textContent = 'Listen Here';
+linkButton.setAttribute('href', result.url);
+linkButton.classList.add('btn',);
+
+resultContent.append(resultCard);
+}
+
+
+// CALLS
 musicsearch.addEventListener('submit', MusicSearchSubmit);
