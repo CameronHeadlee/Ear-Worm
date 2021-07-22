@@ -2,14 +2,11 @@
 //GLOBAL VARIABLES 
 var player;
 
-var resultContent = document.querySelector("#livesearch")
+var resultContent = document.querySelector('#livesearch');
 var musicsearch = document.querySelector('#musicsearch');
 
 //FUNCTIONS
 var YTP = "https://www.youtube.com/iframe_api"; 
-
-var resultContent = document.querySelector("#livesearch");
-var musicsearch = document.querySelector('#musicsearch');
 
 //FUNCTIONS 
 var YTP = "https://www.youtube.com/iframe_api";
@@ -47,7 +44,7 @@ function onPlayerReady(event) {
   
 
 function MusicSearch(query) {
-    var locMMURL = 'https://api.musixmatch.com/ws/1.1/search/?q=' + query;
+    var locMMURL = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=54136b8efe820fb6dfbc6d2a8179c359&q=' + query;
 
     fetch(locMMURL)
     .then(function (response) {
@@ -57,18 +54,11 @@ function MusicSearch(query) {
 
       return response.json();
     })
-    .then(function (locRes) {
-      resultText.textContent = locRes.search.query;
-
-      console.log(locRes);
-
-      if(!locRes.results.length) {
-        console.log('No results found!');
-        resultContent.textContent = '';
-        for (var i = 0; i < locRes.results.length; i++) {
-          printResults(locRes.resluts[i]);
+    .then(function (Music) {
+      console.log(Music);
+        for (var i = 0; i < Music.length; i++) {
+          printResults(track_list[i]);
         }
-      }
     })
     .catch(function (error) {
       console.error(error);
@@ -85,22 +75,22 @@ function MusicSearchSubmit(event) {
         return;
     }
 
-    SearchMusixMatch(searchInput);
+    MusicSearch(searchInput);
 
 }
 
-function printResults(result) {
-    console.log(result);
+function printResults(Songtitle) {
+    console.log(Songtitle);
 
 var resultCard = document.createElement('div');
 resultCard.classList.add('card');
 
 var title = document.createElement('h3');
-title.textContent = result.title;
+title.textContent = Songtitle.title;
 
 var linkButton = document.createElement('a');
 linkButton.textContent = 'Listen Here';
-linkButton.setAttribute('href', result.url);
+linkButton.setAttribute('href', Songtitle.url);
 linkButton.classList.add('btn',);
 
 resultContent.append(resultCard);
