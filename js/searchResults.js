@@ -45,7 +45,7 @@ function onPlayerReady(event) {
 
 function MusicSearch(query) {
     var locMMURL = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=54136b8efe820fb6dfbc6d2a8179c359&q=' + query;
-
+    var printFunction = "functionprintData(data) {console.log(data)}"
     fetch(locMMURL)
     .then(function (response) {
       if(!response.ok) {
@@ -54,10 +54,11 @@ function MusicSearch(query) {
 
       return response.json();
     })
-    .then(function (Music) {
-      console.log(Music);
-        for (var i = 0; i < Music.length; i++) {
-          printResults(track_list[i]);
+    .then(function (data) {
+      //console.log(Music);
+      printFunciton(data);
+        for (var i = 0; i < data.length; i++) {
+          printResults(data[i]);
         }
     })
     .catch(function (error) {
@@ -79,20 +80,42 @@ function MusicSearchSubmit(event) {
 
 }
 
-function printResults(Songtitle) {
-    console.log(Songtitle);
+function printResults(Object) {
+    console.log(Object);
 
 var resultCard = document.createElement('div');
-resultCard.classList.add('card');
+resultCard.classList.add('card', 'blue-grey darken-1');
 
-var title = document.createElement('h3');
-title.textContent = Songtitle.title;
+var resultBody = document.createElement('div');
+  resultBody.classList.add('card-body');
+  resultCard.append(resultBody);
+
+var bodyContentEl = document.createElement('p');
+  bodyContentEl.innerHTML =
+    '<strong>Album_Name:</strong> ' + Object.album_name + '<br/>';
+
+  if (Object.primary_genres) {
+    bodyContentEl.innerHTML +=
+      '<strong>Primary_Genres:</strong> ' + Object.primary_genres.join(', ') + '<br/>';
+  } else {
+    bodyContentEl.innerHTML +=
+      '<strong>primary_genres:</strong> No subject for this entry.';
+  }
+
+  if (Object.track) {
+    bodyContentEl.innerHTML +=
+      '<strong>track:</strong> ' + Object.track[0];
+  } else {
+    bodyContentEl.innerHTML +=
+      '<strong>track_name:</strong>  No description for this entry.';
+  }
 
 var linkButton = document.createElement('a');
 linkButton.textContent = 'Listen Here';
 linkButton.setAttribute('href', Songtitle.url);
 linkButton.classList.add('btn',);
 
+resultBody.append(bodyContentEl, linkButton);
 resultContent.append(resultCard);
 }
 
