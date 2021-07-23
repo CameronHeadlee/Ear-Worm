@@ -6,7 +6,7 @@ Because you will be working collaboratively, you will learn agile development me
 
 
 # User-Story 
-* As a user, I can type lyrics into a search box and after submitting the search I will receive back a list of songs that contain the lyrics I typed. 
+* As a user, I can type songs into a search box and after submitting the search I will receive back a list of songs with the title I typed. 
 
 * As a user I can then click on one of the songs and it will provide a link to view the song with the Youtube API. 
 

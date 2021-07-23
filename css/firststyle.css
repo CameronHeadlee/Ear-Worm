@@ -18,3 +18,9 @@ body, html {
     width: 50%;
     padding: 5px;
   }
+
+  pre{
+    padding: 0 2em;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
