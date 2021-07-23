@@ -45,7 +45,6 @@ function onPlayerReady(event) {
 
 function MusicSearch(query) {
     var locMMURL = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=54136b8efe820fb6dfbc6d2a8179c359&q=' + query;
-    var printFunction = "functionprintData(data) {console.log(data)}"
     fetch(locMMURL)
     .then(function (response) {
       if(!response.ok) {
@@ -54,11 +53,10 @@ function MusicSearch(query) {
 
       return response.json();
     })
-    .then(function (data) {
-      //console.log(Music);
-      printFunciton(data);
-        for (var i = 0; i < data.length; i++) {
-          printResults(data[i]);
+    .then(function (Music) {
+      console.log(Music);
+        for (var i = 0; i < Music.message.body.track_list.length; i++) {
+          printResults(Music.message.body.track_list[i]);
         }
     })
     .catch(function (error) {
@@ -80,11 +78,11 @@ function MusicSearchSubmit(event) {
 
 }
 
-function printResults(Object) {
-    console.log(Object);
+function printResults(Music) {
+    console.log(Music);
 
 var resultCard = document.createElement('div');
-resultCard.classList.add('card', 'blue-grey darken-1');
+resultCard.classList.add('card', 'blue-grey', 'darken-1');
 
 var resultBody = document.createElement('div');
   resultBody.classList.add('card-body');
@@ -92,19 +90,19 @@ var resultBody = document.createElement('div');
 
 var bodyContentEl = document.createElement('p');
   bodyContentEl.innerHTML =
-    '<strong>Album_Name:</strong> ' + Object.album_name + '<br/>';
+    '<strong>Album_Name:</strong> ' + Music.track.album_name + '<br/>';
 
-  if (Object.primary_genres) {
+  if (Music.primary_genres) {
     bodyContentEl.innerHTML +=
-      '<strong>Primary_Genres:</strong> ' + Object.primary_genres.join(', ') + '<br/>';
+      '<strong>Primary_Genres:</strong> ' + Music.track.primary_genres.music_genre_list.join(', ') + '<br/>';
   } else {
     bodyContentEl.innerHTML +=
       '<strong>primary_genres:</strong> No subject for this entry.';
   }
 
-  if (Object.track) {
+  if (Music.track) {
     bodyContentEl.innerHTML +=
-      '<strong>track:</strong> ' + Object.track[0];
+      '<strong>track:</strong> ' + Music.track.track_name;
   } else {
     bodyContentEl.innerHTML +=
       '<strong>track_name:</strong>  No description for this entry.';
@@ -112,7 +110,7 @@ var bodyContentEl = document.createElement('p');
 
 var linkButton = document.createElement('a');
 linkButton.textContent = 'Listen Here';
-linkButton.setAttribute('href', Songtitle.url);
+linkButton.setAttribute('href', Music.track.url);
 linkButton.classList.add('btn',);
 
 resultBody.append(bodyContentEl, linkButton);
