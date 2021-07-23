@@ -18,22 +18,32 @@
 <body class="bg">
     
     <header>
-        <h1>Ear~Worm</h1>
-        <p>Type the lyrics you have stuck in your head into the search bar below.</p>
+    <div class="center-align">
+        <h1 class="green-text text-darken-1">Ear~Worm</h1>
+    </div>
+        <div class="center-align">
+        <p class="green-text text-darken-1">Type the lyrics you have stuck in your head into the search bar below.</p>
+        </div>
     </header>
     <main>
-        <section>
+        <section class="center-align">
             <form id="musicsearch">
-                <label for="lyrics">Lyrics!</label>
+                <h3 class="center-align green-text text-darken-1">Lyrics!</h3>
                 <input id="Search" type="text" placeholder="Search.." name="Search">
                 <button type="submit" class="Btn">Search!</button>
             </form>
         </section>
         <section class="Results">
-            <div>
+
+            <form class="center-align">
+                <div class="green-text text-darken-1">
             <h2>Search Results Here!</h2>
-              <div id="livesearch"></div>
-            </div>
+                </div>
+            
+        
+            <div id="livesearch"></div>
+            </form>
+
         </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
