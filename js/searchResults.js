@@ -5,42 +5,40 @@ var player;
 var resultContent = document.querySelector('#livesearch');
 var musicsearch = document.querySelector('#musicsearch');
 
-//FUNCTIONS
-var YTP = "https://www.youtube.com/iframe_api"; 
 
 //FUNCTIONS 
-var YTP = "https://www.youtube.com/iframe_api";
+// var YTP = "https://www.youtube.com/iframe_api";
 
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '390',
-    width: '640',
-    videoId: 'M7lc1UVf-VE',
-    playerVars: {
-      'playsinline': 1
-    },
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
+// function onYouTubeIframeAPIReady() {
+//   player = new YT.Player('player', {
+//     height: '390',
+//     width: '640',
+//     videoId: 'M7lc1UVf-VE',
+//     playerVars: {
+//       'playsinline': 1
+//     },
+//     events: {
+//       'onReady': onPlayerReady,
+//       'onStateChange': onPlayerStateChange
+//     }
+//   });
+// }
 
-function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+// function onPlayerReady(event) {
+//     event.target.playVideo();
+//   }
 
 
   
-function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+// function onPlayerReady(event) {
+//     event.target.playVideo();
+//   }
   
 
 
-  function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+//   function onPlayerReady(event) {
+//     event.target.playVideo();
+//   }
   
 
 function MusicSearch(query) {
@@ -97,5 +95,13 @@ resultContent.append(resultCard);
 }
 
 
+function ListenHere(video)
+var YThttp = "https://www.googleapis.com/youtube/v3/search";
+var YTapikey = "AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk";
+
+  fetch ("https://www.googleapis.com/youtube/v3/search?part=snippet&q=php&key=AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk"
+
+  );
+  
 // CALLS
 musicsearch.addEventListener('submit', MusicSearchSubmit);
