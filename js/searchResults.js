@@ -120,13 +120,19 @@ resultContent.append(resultCard);
 // template literals 
 // refactor fe
 
+
+
+
 function ListenHere(video) {
+
 var YThttp = "https://www.googleapis.com/youtube/v3/search";
 var YTapikey = "AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk";
 
   fetch ("https://www.googleapis.com/youtube/v3/search?part=snippet&q=php&key=AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk"
 
-);
-}  
+  );
+}
+
+
 // CALLS
 musicsearch.addEventListener('submit', MusicSearchSubmit);
