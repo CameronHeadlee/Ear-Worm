@@ -6,6 +6,8 @@ var resultContent = document.querySelector('#livesearch');
 var musicsearch = document.querySelector('#musicsearch');
 
 
+
+
 //FUNCTIONS 
 // var YTP = "https://www.youtube.com/iframe_api";
 
@@ -60,6 +62,11 @@ function MusicSearch(query) {
     .catch(function (error) {
       console.error(error);
     });
+    
+}
+
+function rerun() {
+  return function MusicSearchSubmit() {''};
 }
 
 function MusicSearchSubmit(event) {
@@ -69,11 +76,13 @@ function MusicSearchSubmit(event) {
 
     if (!searchInput) {
         console.error('Please enter text to search!');
-        return;
-    }
+        return; }
+    // } elseif (resultContent > 0) {
+    //   clear resultContent;
+    // }
 
     MusicSearch(searchInput);
-
+    
 }
 
 function printResults(Music) {
@@ -88,14 +97,14 @@ var resultBody = document.createElement('div');
 
 var bodyContentEl = document.createElement('p');
   bodyContentEl.innerHTML =
-    '<strong>Album_Name:</strong> ' + Music.track.album_name + '<br/>';
+    '<strong>Album Name:</strong> ' + Music.track.album_name + '<br/>';
 
   if (Music.primary_genres) {
     bodyContentEl.innerHTML +=
-      '<strong>Primary_Genres:</strong> ' + Music.track.primary_genres.music_genre_list.join(', ') + '<br/>';
+      '<strong>Primary Genres:</strong> ' + Music.track.primary_genres.music_genre_list.join(', ') + '<br/>';
   } else {
     bodyContentEl.innerHTML +=
-      '<strong>primary_genres:</strong> No subject for this entry.';
+      '<strong>primary genres:</strong> No subject for this entry.';
   }
 
   if (Music.track) {
@@ -105,24 +114,27 @@ var bodyContentEl = document.createElement('p');
     bodyContentEl.innerHTML +=
       '<strong>track_name:</strong>  No description for this entry.';
   }
-
+  
 var linkButton = document.createElement('a');
 linkButton.textContent = 'Listen Here';
-linkButton.setAttribute('href', Music.track.url);
+linkButton.onclick = function () {ListenHere};
 linkButton.classList.add('btn',);
 
 resultBody.append(bodyContentEl, linkButton);
 resultContent.append(resultCard);
+
 }
 
 
-function ListenHere(video)
+function ListenHere(video) {
 var YThttp = "https://www.googleapis.com/youtube/v3/search";
 var YTapikey = "AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk";
 
   fetch ("https://www.googleapis.com/youtube/v3/search?part=snippet&q=php&key=AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk"
 
   );
-  
+};
 // CALLS
+
 musicsearch.addEventListener('submit', MusicSearchSubmit);
+rerun ()
