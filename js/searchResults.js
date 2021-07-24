@@ -6,6 +6,8 @@ var resultContent = document.querySelector('#livesearch');
 var musicsearch = document.querySelector('#musicsearch');
 
 
+
+
 //FUNCTIONS 
 // var YTP = "https://www.youtube.com/iframe_api";
 
@@ -60,6 +62,11 @@ function MusicSearch(query) {
     .catch(function (error) {
       console.error(error);
     });
+    
+}
+
+function rerun() {
+  return function MusicSearchSubmit() {''};
 }
 
 function MusicSearchSubmit(event) {
@@ -69,11 +76,13 @@ function MusicSearchSubmit(event) {
 
     if (!searchInput) {
         console.error('Please enter text to search!');
-        return;
-    }
+        return; }
+    // } elseif (resultContent > 0) {
+    //   clear resultContent;
+    // }
 
     MusicSearch(searchInput);
-
+    
 }
 
 function printResults(Music) {
@@ -92,10 +101,11 @@ var bodyContentEl = document.createElement('p');
 
   if (Music.track.artist_name) {
     bodyContentEl.innerHTML +=
-      '<strong>Artist Name:</strong> ' + Music.track.artist_name + '<br/>';
+     '<strong>Artist Name:</strong> ' + Music.track.artist_name + '<br/>';
   } else {
     bodyContentEl.innerHTML +=
       '<strong>Artist Name:</strong> No subject for this entry.' + '<br/>';
+
   }
 
   if (Music.track) {
@@ -105,14 +115,17 @@ var bodyContentEl = document.createElement('p');
     bodyContentEl.innerHTML +=
       '<strong>Track:</strong>  No description for this entry.';
   }
-
+  
 var linkButton = document.createElement('a');
 linkButton.textContent = 'Listen Here';
-linkButton.onclick = function(){ListenHere};
+
+linkButton.onclick = function () {ListenHere};
+
 linkButton.classList.add('btn',);
 
 resultBody.append(bodyContentEl, linkButton);
 resultContent.append(resultCard);
+
 }
 
 // pass variables as arguments 
@@ -121,6 +134,15 @@ resultContent.append(resultCard);
 // refactor fe
 
 
+function ListenHere(video) {
+var YThttp = "https://www.googleapis.com/youtube/v3/search";
+var YTapikey = "AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk";
+
+
+
+
+  );
+};
 
 // This is as far as I got. The issue is that it is not allowing me to create a new API key
 // If you click the fetch link you will see that it will display an invalid API key. I searched
@@ -141,5 +163,8 @@ function ListenHere() {
         console.error(err);
     });
 }
+
 // CALLS
+
 musicsearch.addEventListener('submit', MusicSearchSubmit);
+rerun ()
