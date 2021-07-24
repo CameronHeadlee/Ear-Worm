@@ -3,17 +3,15 @@ body,html{height:100%}
 .bg{
   background-image: url(https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   height: 100%;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 h1{
   font-family:cursive;
-  vertical-align: middle;
-  margin: auto;
-  width: 20%;
-  padding: 5px 0px 0px 50px;
+  padding: 5px 0px 0px 83px;
   font-size:75px;
 }
 
@@ -29,7 +27,6 @@ form input#Search{
   width: 50%;
   margin: 0 auto;
 }
-
 
 h3{
   font-size: 45px;
@@ -54,22 +51,6 @@ button{
 section #search{
   margin: 20px auto;
 }
-
-
-/*input{
-  font-family: sans-serif;
-  vertical-align: middle;
-  margin: auto;
-  width: 100%;
-  padding: 5px;
-  font-size: 12px;
-}*/
-
-/*h2{
-  text-align: center;
-  width: 100%;
-  margin: 0 .25em;
-}*/
 
 .Results{
   color: white;
