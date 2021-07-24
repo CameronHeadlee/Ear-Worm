@@ -108,7 +108,7 @@ var bodyContentEl = document.createElement('p');
 
 var linkButton = document.createElement('a');
 linkButton.textContent = 'Listen Here';
-linkButton.setAttribute('href', Music.track.url);
+linkButton.onclick = function(){ListenHere};
 linkButton.classList.add('btn',);
 
 resultBody.append(bodyContentEl, linkButton);
@@ -122,17 +122,24 @@ resultContent.append(resultCard);
 
 
 
-
-function ListenHere(video) {
-
-var YThttp = "https://www.googleapis.com/youtube/v3/search";
-var YTapikey = "AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk";
-
-  fetch ("https://www.googleapis.com/youtube/v3/search?part=snippet&q=php&key=AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk"
-
-  );
+// This is as far as I got. The issue is that it is not allowing me to create a new API key
+// If you click the fetch link you will see that it will display an invalid API key. I searched
+// for best music API keys and this seemed to be one of the best for searching various parameters like
+//  Artists, songs, albums, etc. 
+function ListenHere() {
+    fetch("https://deezerdevs-deezer.p.rapidapi.com/track/%7Bid%7D", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "4b9eb06844msh2593a5e43d37842p15d2e7jsnd7dac4b64d82",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+        }
+    })
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+        console.error(err);
+    });
 }
-
-
 // CALLS
 musicsearch.addEventListener('submit', MusicSearchSubmit);
