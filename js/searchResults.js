@@ -1,161 +1,138 @@
 
-//GLOBAL VARIABLES 
-var player;
-
+var firstsearch = document.querySelector('#Search');
 var resultContent = document.querySelector('#livesearch');
 var musicsearch = document.querySelector('#musicsearch');
+var Musicsearchitem = document.querySelector('#Music-Search-Item');
+var VideoSearch = document.querySelector('#videosearch');
+var VideoSearchItem = document.querySelector('#Video-Search-Item');
+var MMURL = ("https://api.musixmatch.com/ws/1.1/track.search?apikey=54136b8efe820fb6dfbc6d2a8179c359&q=");
 
-
-
-
-//FUNCTIONS 
-// var YTP = "https://www.youtube.com/iframe_api";
-
-// function onYouTubeIframeAPIReady() {
-//   player = new YT.Player('player', {
-//     height: '390',
-//     width: '640',
-//     videoId: 'M7lc1UVf-VE',
-//     playerVars: {
-//       'playsinline': 1
-//     },
-//     events: {
-//       'onReady': onPlayerReady,
-//       'onStateChange': onPlayerStateChange
-//     }
-//   });
-// }
-
-// function onPlayerReady(event) {
-//     event.target.playVideo();
-//   }
-
-
-  
-// function onPlayerReady(event) {
-//     event.target.playVideo();
-//   }
-  
-
-
-//   function onPlayerReady(event) {
-//     event.target.playVideo();
-//   }
-  
-// Directly injecting variable into the server rather than waiting for the browser to put it together 
 function MusicSearch(query) {
-    var locMMURL = `https://api.musixmatch.com/ws/1.1/track.search?apikey=54136b8efe820fb6dfbc6d2a8179c359&q=${query}`
-    fetch(locMMURL)
+    var MSQ = MMURL + query;
+    fetch(MSQ)
     .then(function (response) {
-      if(!response.ok) {
-        throw response.json();
-      }
-
-      return response.json();
-    })
-    .then(function (Music) {
-      console.log(Music);
-        for (var i = 0; i < Music.message.body.track_list.length; i++) {
-          printResults(Music.message.body.track_list[i]);
-        }
+      if(response.ok) {
+        response.json().then(function (data) {
+            printResults (data, query)
+        });
+      } else {
+          return response.json();
+          }
     })
     .catch(function (error) {
       console.error(error);
     });
-    
-}
-
-function rerun() {
-  return function MusicSearchSubmit() {''};
 }
 
 function MusicSearchSubmit(event) {
     event.preventDefault();
-
-    var searchInput = document.querySelector('#Search').value;
-
-    if (!searchInput) {
-        console.error('Please enter text to search!');
-        return; }
-    // } elseif (resultContent > 0) {
-    //   clear resultContent;
-    // }
-
-    MusicSearch(searchInput);
     
+    var searchInput = firstsearch.value.trim();
+    
+    if (searchInput) {
+      MusicSearch(searchInput);
+
+      resultContent.textContent = '';
+      musicsearch.value = '';
+    }
 }
 
-function printResults(Music) {
+function printResults(Music, searchterm) {
     console.log(Music);
+    Musicsearchitem.textContent = searchterm;
 
-var resultCard = document.createElement('div');
-resultCard.classList.add('card', 'blue-grey', 'darken-1');
-
-var resultBody = document.createElement('div');
-  resultBody.classList.add('card-body');
-  resultCard.append(resultBody);
-
-var bodyContentEl = document.createElement('p');
-  bodyContentEl.innerHTML =
-    '<strong>Album Name:</strong> ' + Music.track.album_name + '<br/>';
-
-  if (Music.track.artist_name) {
-    bodyContentEl.innerHTML +=
-     '<strong>Artist Name:</strong> ' + Music.track.artist_name + '<br/>';
-  } else {
-    bodyContentEl.innerHTML +=
-      '<strong>Artist Name:</strong> No subject for this entry.' + '<br/>';
-
-  }
-
-  if (Music.track) {
-    bodyContentEl.innerHTML +=
-      '<strong>Track:</strong> ' + Music.track.track_name;
-  } else {
-    bodyContentEl.innerHTML +=
-      '<strong>Track:</strong>  No description for this entry.';
-  }
-  
-var linkButton = document.createElement('a');
-linkButton.textContent = 'Listen Here';
-
-linkButton.onclick = function () {ListenHere};
-
-linkButton.classList.add('btn',);
-
-resultBody.append(bodyContentEl, linkButton);
-resultContent.append(resultCard);
-
+    for (var i=0; i < Music.message.body.track_list.length; i++) {
+                        
+        var resultCard = document.createElement('div');
+        resultCard.classList.add('card', 'orange', 'lighten-3', 'round');
+        
+        var resultBody = document.createElement('div');
+        resultBody.classList.add('card-body');
+        resultCard.append(resultBody);
+        
+        
+        var bodyContentEl = document.createElement('p');
+        bodyContentEl.innerHTML =
+            '<strong>Album Name:</strong> ' + Music.message.body.track_list[i].track.album_name + '<br/>';
+                
+        if (Music.message.body.track_list[i].track.artist_name) {
+            bodyContentEl.innerHTML +=
+            '<strong>Artist Name:</strong> ' + Music.message.body.track_list[i].track.artist_name + '<br/>';
+        } else {
+            bodyContentEl.innerHTML +=
+            '<strong>Artist Name:</strong> No subject for this entry.' + '<br/>';
+        }
+        
+        if (Music.message.body.track_list[i].track.track_name) {
+            bodyContentEl.innerHTML +=
+            '<strong>Track:</strong> ' + Music.message.body.track_list[i].track.track_name;
+        } else {
+            bodyContentEl.innerHTML +=
+            '<strong>Track:</strong>  No description for this entry.';
+        }
+        
+        var linkButton = document.createElement('button');
+        linkButton.textContent = 'Dive Deeper';
+        linkButton.addEventListener ('click', function (event) { 
+            event.preventDefault(); 
+            YTResults(event.target.dataset.track_name)});
+        linkButton.classList.add('btn',);
+        linkButton.dataset.track_name = Music.message.body.track_list[i].track.track_name
+        
+        resultBody.append(linkButton, bodyContentEl);
+        resultContent.append(resultCard);
+    }
 }
 
+<<<<<<< HEAD
 // pass variables as arguments 
 // pass snippet into listen here function 
 // template literals 
 // refactor fe
 
 
+=======
+function ShowResults(Second, Deeper) {
+   
+    VideoSearchItem.innerHTML = Deeper;
 
-// This is as far as I got. The issue is that it is not allowing me to create a new API key
-// If you click the fetch link you will see that it will display an invalid API key. I searched
-// for best music API keys and this seemed to be one of the best for searching various parameters like
-//  Artists, songs, albums, etc. 
-function ListenHere() {
-    fetch("https://deezerdevs-deezer.p.rapidapi.com/track/%7Bid%7D", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "4b9eb06844msh2593a5e43d37842p15d2e7jsnd7dac4b64d82",
-            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-        }
-    })
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => {
-        console.error(err);
-    });
+    for (var i=0; i < Second.length; i++) {
+        console.log(Second);
+                
+        var resultCard = document.createElement('div');
+        resultCard.classList.add('card', 'light green', 'darken-1');
+        
+        var VideoResult = document.createElement('video');
+        VideoResult.classList.add('card-body');
+        resultCard.append(VideoResult);
+                
+        var bodyContentEl = document.createElement('');
+        bodyContentEl.innerHTML =
+            Second[i].artist_name + '<br/>';
+                
+        VideoResult.append(bodyContentEl);
+        VideoSearch.append(resultCard);
+    }
 }
 
-// CALLS
+function YTResults(track_name) {
+   var Ufinder = `https://www.googleapis.com/youtube/v3/videos?id=71CDEYXw3mM&key=AIzaSyCMOEOHziR1Ycifilh5J3nJ5S7RqC4VzSo&part=snippet,contentDetails,player`
+   fetch(Ufinder)
+   .then(function (response) {
+    if(response.ok) {
+        response.json().then(function (snippet) {
+            console.log(snippet, track_name);
+            ShowResults (snippet, track_name)
+        });
+    } else {
+           return response.json();
+       };
+   })
+   .catch(function (error) {
+   });
+};
+>>>>>>> 67d2c152f2dde3984eab0e56eac587f2338e25e4
+
+
 
 musicsearch.addEventListener('submit', MusicSearchSubmit);
-rerun ()
