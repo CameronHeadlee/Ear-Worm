@@ -134,15 +134,6 @@ resultContent.append(resultCard);
 // refactor fe
 
 
-function ListenHere(video) {
-var YThttp = "https://www.googleapis.com/youtube/v3/search";
-var YTapikey = "AIzaSyDYdJMzzOZAcm23t_SAwPYCVQTp0lsmzBk";
-
-
-
-
-  );
-};
 
 // This is as far as I got. The issue is that it is not allowing me to create a new API key
 // If you click the fetch link you will see that it will display an invalid API key. I searched
