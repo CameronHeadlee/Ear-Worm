@@ -19,8 +19,9 @@ body, html {
     padding: 5px;
   }
 
-  pre{
-    padding: 0 2em;
+  p{
+    padding: 0 10em;
     max-width: 90vw;
     margin: 0 auto;
+    font-weight: bolder;
   }
