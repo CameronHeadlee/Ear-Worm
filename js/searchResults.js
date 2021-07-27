@@ -84,14 +84,6 @@ function printResults(Music, searchterm) {
     }
 }
 
-<<<<<<< HEAD
-// pass variables as arguments 
-// pass snippet into listen here function 
-// template literals 
-// refactor fe
-
-
-=======
 function ShowResults(Second, Deeper) {
    
     VideoSearchItem.innerHTML = Deeper;
@@ -131,7 +123,6 @@ function YTResults(track_name) {
    .catch(function (error) {
    });
 };
->>>>>>> 67d2c152f2dde3984eab0e56eac587f2338e25e4
 
 
 

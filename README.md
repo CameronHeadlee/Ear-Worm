@@ -36,3 +36,7 @@ https://developers.google.com/youtube/iframe_api_reference
 # CSS frame work being used :
 https://materializecss.com/getting-started.html
 
+# Links to both Github Repository and Github Published Site
+https://github.com/CameronHeadlee/Ear-Worm
+https://cameronheadlee.github.io/Ear-Worm/
+
